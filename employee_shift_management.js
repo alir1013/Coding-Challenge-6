@@ -64,3 +64,16 @@ function assignShift(employeeName,day,hours){
     //Testing the Function
     let employeeName= "Apple Jane";
     console.log(`${employeeName} worked a total of ${calculateTotalHours(employeeName)} hours`);
+
+    //Task 5: Creating a Function to List Employees with Free Days
+
+    //Creating a function that accepts a day as input and logs the names of employees not assigned a shift
+    function listAvailableEmployees(day){
+    const availableEmployees = employees.filter(employee =>
+        !employee.shifts.some(shift => shift.day === day) //Using the some() method to check what employees are not assigned a shift for that day
+    );
+    console.log(`Employees available on ${day}:`);
+    availableEmployees.forEach(employee => console.log(employee.name)); //Logs the available employees
+}
+    //Testing the function
+    listAvailableEmployees("Thursday");
